@@ -1,2 +1,2 @@
-# aditya_portfolio
+# Aditya Portfolio
 Data Science Portfolio
