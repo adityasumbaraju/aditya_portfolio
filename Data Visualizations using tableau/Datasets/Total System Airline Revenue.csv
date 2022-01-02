@@ -1,0 +1,376 @@
+Year,airline,totalrevenue
+1995,American,131072
+1996,American,137914
+1997,American,148335
+1998,American,153165
+1999,American,162852
+2000,American,177523
+2001,American,166271
+2002,American,162232
+2003,American,154226
+2004,American,177334
+2005,American,193789
+2006,American,205398
+2007,American,218098
+2008,American,227142
+2009,American,216429
+2010,American,231693
+2011,American,239828
+2012,American,244385
+2013,American,251595
+2014,American,255818
+2015,American,261081
+2016,American,262510
+2017,American,270228
+2018,American,280153
+2019,American,292038
+1995,Continental,6070
+1996,Continental,7085
+1997,Continental,10839
+1998,Continental,14760
+1999,Continental,19178
+2000,Continental,21946
+2001,Continental,19708
+2002,Continental,20203
+2003,Continental,20454
+2004,Continental,24444
+2005,Continental,27424
+2006,Continental,31871
+2007,Continental,34870
+2008,Continental,36282
+2009,Continental,35767
+2010,Continental,38327
+2011,Continental,39779
+2012,Continental,
+2013,Continental,
+2014,Continental,
+2015,Continental,
+2016,Continental,
+2017,Continental,
+2018,Continental,
+2019,Continental,
+1995,Delta,21889
+1996,Delta,20980
+1997,Delta,21859
+1998,Delta,24058
+1999,Delta,24413
+2000,Delta,25975
+2001,Delta,24409
+2002,Delta,23818
+2003,Delta,21019
+2004,Delta,24829
+2005,Delta,27900
+2006,Delta,33434
+2007,Delta,39129
+2008,Delta,44569
+2009,Delta,43914
+2010,Delta,75455
+2011,Delta,76312
+2012,Delta,76699
+2013,Delta,78438
+2014,Delta,80365
+2015,Delta,80837
+2016,Delta,79657
+2017,Delta,80873
+2018,Delta,82141
+2019,Delta,84673
+1995,Northwest,26194
+1996,Northwest,29669
+1997,Northwest,31175
+1998,Northwest,28560
+1999,Northwest,31425
+2000,Northwest,34166
+2001,Northwest,31227
+2002,Northwest,31067
+2003,Northwest,28222
+2004,Northwest,30472
+2005,Northwest,31916
+2006,Northwest,30606
+2007,Northwest,31474
+2008,Northwest,33188
+2009,Northwest,28146
+2010,Northwest,
+2011,Northwest,
+2012,Northwest,
+2013,Northwest,
+2014,Northwest,
+2015,Northwest,
+2016,Northwest,
+2017,Northwest,
+2018,Northwest,
+2019,Northwest,
+1995,United,42294
+1996,United,44091
+1997,United,46368
+1998,United,45677
+1999,United,44901
+2000,United,48388
+2001,United,46005
+2002,United,42183
+2003,United,37439
+2004,United,42596
+2005,United,45937
+2006,United,46535
+2007,United,47527
+2008,United,46161
+2009,United,42429
+2010,United,45206
+2011,United,45781
+2012,United,85495
+2013,United,85649
+2014,United,86727
+2015,United,88408
+2016,United,88407
+2017,United,88903
+2018,United,94237
+2019,United,98372
+1995,US Airways,2146
+1996,US Airways,3047
+1997,US Airways,4020
+1998,US Airways,4555
+1999,US Airways,5366
+2000,US Airways,6862
+2001,US Airways,8021
+2002,US Airways,8377
+2003,US Airways,9353
+2004,US Airways,10549
+2005,US Airways,10396
+2006,US Airways,11034
+2007,US Airways,11868
+2008,US Airways,12653
+2009,US Airways,13574
+2010,US Airways,15108
+2011,US Airways,15690
+2012,US Airways,15772
+2013,US Airways,16718
+2014,US Airways,16222
+2015,US Airways,
+2016,US Airways,
+2017,US Airways,
+2018,US Airways,
+2019,US Airways,
+1995,America West,146
+1996,America West,381
+1997,America West,420
+1998,America West,371
+1999,America West,325
+2000,America West,353
+2001,America West,400
+2002,America West,510
+2003,America West,597
+2004,America West,734
+2005,America West,885
+2006,America West,
+2007,America West,
+2008,America West,
+2009,America West,
+2010,America West,
+2011,America West,
+2012,America West,
+2013,America West,
+2014,America West,
+2015,America West,
+2016,America West,
+2017,America West,
+2018,America West,
+2019,America West,
+1995,Southwest,
+1996,Southwest,
+1997,Southwest,
+1998,Southwest,
+1999,Southwest,
+2000,Southwest,
+2001,Southwest,
+2002,Southwest,
+2003,Southwest,
+2004,Southwest,
+2005,Southwest,
+2006,Southwest,
+2007,Southwest,
+2008,Southwest,
+2009,Southwest,
+2010,Southwest,
+2011,Southwest,
+2012,Southwest,1578
+2013,Southwest,2126
+2014,Southwest,2271
+2015,Southwest,2893
+2016,Southwest,3719
+2017,Southwest,4421
+2018,Southwest,4781
+2019,Southwest,4402
+1995,AirTran,
+1996,AirTran,
+1997,AirTran,
+1998,AirTran,
+1999,AirTran,
+2000,AirTran,
+2001,AirTran,
+2002,AirTran,
+2003,AirTran,
+2004,AirTran,154
+2005,AirTran,63
+2006,AirTran,
+2007,AirTran,
+2008,AirTran,1201
+2009,AirTran,2854
+2010,AirTran,4068
+2011,AirTran,4502
+2012,AirTran,5251
+2013,AirTran,5958
+2014,AirTran,7354
+2015,AirTran,8607
+2016,AirTran,9347
+2017,AirTran,9833
+2018,AirTran,10694
+2019,AirTran,12257
+1995,Frontier,
+1996,Frontier,
+1997,Frontier,
+1998,Frontier,
+1999,Frontier,
+2000,Frontier,
+2001,Frontier,
+2002,Frontier,
+2003,Frontier,
+2004,Frontier,
+2005,Frontier,36
+2006,Frontier,48
+2007,Frontier,11
+2008,Frontier,4
+2009,Frontier,164
+2010,Frontier,826
+2011,Frontier,1059
+2012,Frontier,
+2013,Frontier,
+2014,Frontier,
+2015,Frontier,
+2016,Frontier,
+2017,Frontier,
+2018,Frontier,
+2019,Frontier,
+1995,Virgin America,
+1996,Virgin America,
+1997,Virgin America,
+1998,Virgin America,
+1999,Virgin America,
+2000,Virgin America,
+2001,Virgin America,
+2002,Virgin America,
+2003,Virgin America,
+2004,Virgin America,
+2005,Virgin America,
+2006,Virgin America,
+2007,Virgin America,
+2008,Virgin America,
+2009,Virgin America,
+2010,Virgin America,2
+2011,Virgin America,247
+2012,Virgin America,344
+2013,Virgin America,293
+2014,Virgin America,275
+2015,Virgin America,265
+2016,Virgin America,303
+2017,Virgin America,313
+2018,Virgin America,
+2019,Virgin America,
+1995,Alaska,612
+1996,Alaska,749
+1997,Alaska,817
+1998,Alaska,939
+1999,Alaska,1069
+2000,Alaska,1176
+2001,Alaska,1229
+2002,Alaska,1385
+2003,Alaska,1501
+2004,Alaska,1578
+2005,Alaska,1622
+2006,Alaska,1909
+2007,Alaska,2092
+2008,Alaska,1972
+2009,Alaska,1592
+2010,Alaska,1620
+2011,Alaska,1937
+2012,Alaska,1921
+2013,Alaska,2029
+2014,Alaska,1964
+2015,Alaska,1927
+2016,Alaska,2276
+2017,Alaska,2649
+2018,Alaska,2786
+2019,Alaska,2522
+1995,Hawaiian,175
+1996,Hawaiian,168
+1997,Hawaiian,162
+1998,Hawaiian,165
+1999,Hawaiian,253
+2000,Hawaiian,579
+2001,Hawaiian,463
+2002,Hawaiian,147
+2003,Hawaiian,67
+2004,Hawaiian,287
+2005,Hawaiian,418
+2006,Hawaiian,366
+2007,Hawaiian,372
+2008,Hawaiian,566
+2009,Hawaiian,735
+2010,Hawaiian,943
+2011,Hawaiian,2374
+2012,Hawaiian,3638
+2013,Hawaiian,4605
+2014,Hawaiian,4328
+2015,Hawaiian,4169
+2016,Hawaiian,4571
+2017,Hawaiian,5445
+2018,Hawaiian,5668
+2019,Hawaiian,5595
+1995,Spirit,
+1996,Spirit,
+1997,Spirit,
+1998,Spirit,
+1999,Spirit,
+2000,Spirit,
+2001,Spirit,
+2002,Spirit,
+2003,Spirit,
+2004,Spirit,
+2005,Spirit,264
+2006,Spirit,550
+2007,Spirit,1286
+2008,Spirit,1274
+2009,Spirit,1048
+2010,Spirit,1154
+2011,Spirit,1285
+2012,Spirit,1289
+2013,Spirit,1364
+2014,Spirit,1511
+2015,Spirit,1752
+2016,Spirit,1934
+2017,Spirit,1875
+2018,Spirit,2637
+2019,Spirit,3655
+1995,Allegiant,
+1996,Allegiant,
+1997,Allegiant,
+1998,Allegiant,
+1999,Allegiant,
+2000,Allegiant,
+2001,Allegiant,
+2002,Allegiant,
+2003,Allegiant,
+2004,Allegiant,
+2005,Allegiant,
+2006,Allegiant,
+2007,Allegiant,
+2008,Allegiant,
+2009,Allegiant,
+2010,Allegiant,
+2011,Allegiant,
+2012,Allegiant,3
+2013,Allegiant,
+2014,Allegiant,
+2015,Allegiant,
+2016,Allegiant,5
+2017,Allegiant,9
+2018,Allegiant,
+2019,Allegiant,
