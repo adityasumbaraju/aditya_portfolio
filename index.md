@@ -6,15 +6,10 @@
            I have considered three datasets for the Data Preparation - ETL Project. The three datasets are linked based on the Make and Model of a given vehicle.<br />
  <b>Data source 1: flat file</b>
 The CSV file containing the vehicle demographics, which is specific to the wheelbase, fuel type, and respective price of several motor vehicle models. Each row is one vehicle model, and each column is one specification such as engine size, fuel system, stroke, horsepower, highway mpg, city mpg, etc.<br />
-!(/aditya_portfolio/P1_images/DS1_stats.jpg)
-!(/aditya_portfolio/P1_images/DS1_corr.jpg)
- (https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS1_stats.jpg)<br />
- (https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS1_corr.jpg)  <br />  
+![](images/DS1_stats.jpg)
+![](images/DS1_corr.jpg)
  
- 
- <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS1_stats.jpg" width="800"/><br />
- <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS1_corr.jpg" width="800"/>  <br />          
-   <br />
+ <br />
  
  <b>Data Source 2: Website</b>
 The Website that contains a table of the number of each vehicle model sold during 2020. Each row is one vehicle model. The website represents the make and model as car models. I split based on the pattern and assigned the values to respective columns to make the data more granular.<br />
