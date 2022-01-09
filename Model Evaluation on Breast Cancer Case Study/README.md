@@ -23,13 +23,15 @@ By using exploratory data analysis, physicians may more accurately predict wheth
 I have used descriptive statistics to derive mean, SD, and correlation. After grouping on diagnosis, it has been observed that 357 observations indicate the absence of cancer cells and 212 show absence of cancer cell
 
 # Model Comparision
-Model	          SVM	  LogisticRegression	  RandomForest	  KNN
-Prediction Yes	82	  80	                  77	             81
-Prediction -No	146	  148	                  151	             147
-Accuracy	      97%	  98%	                  97%	             98%
+<br />
+      <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Model%20Evaluation%20on%20Breast%20Cancer%20Case%20Study/images/P5_Model_Evaluation.JPG" width="800"/><br />
+ 
+ <br />
 
 Compared to logistic regression, Random Forest, KNN, and SVM, the logistic regression model was more accurate in predicting breast cancer's class. It seems that for the classification of breast cancer class, the logistic regression method is appropriate. The Logistic regression correctly classifies patients with and without breast cancer 96% of the time. Its AUC of 99% indicates a remarkable ability to distinguish between a benign lump and a malignant tumor
 In the Anaconda environment, all algorithms have been programmed in Python using the scikit-learn library. After an accurate comparison between our models, I found that the logistic regression achieved a higher efficiency of  98%, Precision of 97.5%, AUC of 99 %, and outperformed all other algorithms. In conclusion, Logistic regression has demonstrated its efficiency in Breast Cancer prediction and diagnosis and achieves the best performance in terms of accuracy and Precision. 
+
+
 
 # References
 
