@@ -109,7 +109,9 @@ After calculating the percentage of CVT transmissions found for all cars with a 
   
  <br />
 
-# Project 3: { R Project} Predicting Hospital Readmission of Diabetic patients
+# Project 3: { R Project} 
+<a href="https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Predicting%20Hospital%20Readmission%20of%20Diabetic%20patients%20Using%20R"> <b>R-Proj Predicting Hospital Readmission of Diabetic patients</b> </a>
+
 <b>Predicting Hospital Readmission of Diabetic patients</b>
 
 In the project, I build the logistic regression model with LASSCO in classifications to identify best model variables. And I have used the Bayes' rule for model evaluation to pick the best model and set the risk ratio at a01/a10 = 0.1 to consider the loss. Because for patients who are readmitted within 30 days, the hospital won't get paid from the social insurance system. In other words, the cost is more considerable for a false negative prediction. I find that the length of a hospital stay, the frequency of the inpatient visit, and the discharge location are the most important predictors for the readmission status.
