@@ -14,22 +14,4 @@ Predicting the readmission status for patients with diabetes, the length of stay
 It appear to be some positive correlations between number of medications and variables like the time spent in hospital, number of procedures, and diagnoses. Next, I’ll look at the categorical variable age, and see if this conforms to my expectation that diabetic patients trend to be older on average.
   <br />
    ![](images/P3_Correlationplot.JPG)
-  
- <br />
-<b>Residual plots: </b>   <br />
-   ![](images/P3_Plots.JPG)
-  
- <br />
  
-
-<b>Model Summary: </b>
-The skewness and kurtosis assumptions are not satisfied. this is due to response variable is skewed to the right.
-As per Adjusted R-squared the ultimate model only explains 42% of the variation of the number of medications,and p-value: < 2.2e-16 which in my opinion provides too high of residuals to be clinically meaningful.
-The model has two quadratic features: age and time in hospital. The time in hospital value is of limited value unfortunately as the data have an artificial maximum of 14 days length of stay. The original analysis omitted hospital lengths of stay >15 days. Additionally, the age versus number of medications has several interesting interpretations. It makes sense that younger people would be on fewer medications, but it appears that the oldest patients are less likely to be on multiple medications. This could be because their doctors are concerned about too many medications or a survivor’s bias.
-There were also several dichotomous variables, some of which I adapted. Patients on diabetes medications were much more likely to be on additional medications. By contrast, ‘no changes’ to medications was associated with being on fewer medications, as well as not being insulin-dependent. Men were also own fewer medications.
-
-  <br />
-   ![](images/P3_summary.JPG)
-  
- <br />
-
