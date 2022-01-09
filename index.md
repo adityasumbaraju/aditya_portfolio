@@ -1,5 +1,6 @@
 ## Data Science Projects Portfolio
 
+## Project 1: ETL
 <a href="https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Data_Preparation_Car_Sales_Productivity"> <b>Data Preparation - ETL and Data Analysis Project</b> </a>
 
 
@@ -69,7 +70,10 @@ I choose 2 API datasets to support my use case that contains the vehicle catalog
  <br />
 
 
-# Project 2: Exploratory Analysis on Factors Affecting Vehicular Emissions
+# Project 2: EDA
+<a href="https://github.com/adityasumbaraju/aditya_portfolio/tree/main/EDA-%20CO2%20Emission"> <b>Exploratory Data Analysis(EDA) on Factors Affecting Vehicular Emissions</b> </a>
+
+
 
 I have considered the dataset of Co2 emission from kaggle.
 
@@ -81,13 +85,29 @@ I also had a few secondary questions I wanted to answer:
 
 • if CVTs are more or less likely to be found on larger engines
 
-In my EDA, I concluded that the most significant factors in increasing a vehicle’s emissions are its variant, engine, and fuel consumption. Cylinder number goes hand-in-hand with displacement, so that is included as well. What surprised me was that transmission and fuel types did not affect emissions as much as said variables. Based on this, I would recommend purchasing a compact, midsize sedan, or station wagon, equipped with a 4-cylinder engine running regular gasoline, to reduce emissions. Such cars are usually very inexpensive, so it’s a win-win situation!
+In my EDA, I concluded that the most significant factors in increasing a vehicle’s emissions are its variant, engine, and fuel consumption. Cylinder number goes hand-in-hand with displacement, so that is included as well. What surprised me was that transmission and fuel types did not affect emissions as much as said variables. Based on this, I would recommend purchasing a compact, midsize sedan, or station wagon, equipped with a 4-cylinder engine running regular gasoline, to reduce emissions. Such cars are usually very inexpensive, so it’s a win-win situation!<br />
+  <br />
+   ![](images/P2_histogram.JPG)
+  
+ <br />
 
-I then plotted a PMF of the fuel consumption of gas and premium gas cars. There was indeed a difference between premium Vehicles had higher fuel consumption vehicles; it made me to to run the hypothesis test to test the difference in means, and the output yielded a p-value significantly smaller than zero, confirming that regular gasoline does, in fact, consume less fuel. It is also much less expensive, so the only reason one should purchase premium gas is if their car requires it.
+I then plotted a PMF of the fuel consumption of gas and premium gas cars. There was indeed a difference between premium Vehicles had higher fuel consumption vehicles; it made me to to run the hypothesis test to test the difference in means, and the output yielded a p-value significantly smaller than zero, confirming that regular gasoline does, in fact, consume less fuel. It is also much less expensive, so the only reason one should purchase premium gas is if their car requires it.<br />
+  <br />
+   ![](images/P2_PMF.JPG)
+  
+ <br />
 
-The box plot of emissions vs car manufacturer. I found that (no surprise) all sports car and most luxury car brands are guilty of emitting more CO2 than other cars. Based on the plot, the following brands have the lowest emissions and are the brands I would recommend purchasing: Fiat, Honda, Hyundai, Mazda, Mini, Smart, and Volkswagen. If one is adamant on buying a luxury car, they should consider Audi or Acura; these brands are in the middle of the emissions spectrum.
+The box plot of emissions vs car manufacturer. I found that (no surprise) all sports car and most luxury car brands are guilty of emitting more CO2 than other cars. Based on the plot, the following brands have the lowest emissions and are the brands I would recommend purchasing: Fiat, Honda, Hyundai, Mazda, Mini, Smart, and Volkswagen. If one is adamant on buying a luxury car, they should consider Audi or Acura; these brands are in the middle of the emissions spectrum.<br />
+  <br />
+   ![](images/P2_BoxPlot.JPG)
+  
+ <br />
 
-After calculating the percentage of CVT transmissions found for all cars with a certain number of cylinders and plotted this against the number of cylinders. The observation I made here is occurrence of CVTs dropped with increasing engine size. Agreed, as CVTs are already very expensive and have issues with higher loads.
+After calculating the percentage of CVT transmissions found for all cars with a certain number of cylinders and plotted this against the number of cylinders. The observation I made here is occurrence of CVTs dropped with increasing engine size. Agreed, as CVTs are already very expensive and have issues with higher loads.<br />
+  <br />
+   ![](images/P2_ScatterPlot.JPG)
+  
+ <br />
 
 # Project 3: { R Project} Predicting Hospital Readmission of Diabetic patients
 In the project, I build the logistic regression model with LASSCO in classifications to identify best model variables. And I have used the Bayes' rule for model evaluation to pick the best model and set the risk ratio at a01/a10 = 0.1 to consider the loss. Because for patients who are readmitted within 30 days, the hospital won't get paid from the social insurance system. In other words, the cost is more considerable for a false negative prediction. I find that the length of a hospital stay, the frequency of the inpatient visit, and the discharge location are the most important predictors for the readmission status.
