@@ -13,15 +13,16 @@ The CSV file containing the vehicle demographics, which is specific to the wheel
  
  <b>Data Source 2: Website</b>
 The Website that contains a table of the number of each vehicle model sold during 2020. Each row is one vehicle model. The website represents the make and model as car models. I split based on the pattern and assigned the values to respective columns to make the data more granular.<br />
- <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS2_stats.jpg" width="800"/>
- <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS2_corr.jpg" width="800"/>            
+![](images/DS2_stats.jpg)
+![](images/DS2_corr.jpg)
   <br />
 
  
  <b>Data Source 3: API</b>
 I choose 2 API datasets to support my use case that contains the vehicle catalog and Vehicle mechanical demographics <br />
-  <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS3_stats.jpg" width="800"/> <br />
- <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS3_corr.jpg" width="800"/> <br />           
+![](images/DS3_stats.jpg)
+![](images/DS3_corr.jpg)
+ 
   <br />
 
 
@@ -43,24 +44,27 @@ I choose 2 API datasets to support my use case that contains the vehicle catalog
  <b>Visualizations </b> <br />
 •	Scatter plot of horsepower (flat file) vs. Engine_Capacity (website)<br />
   <br />
-   <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/viz_scatterplot.jpg" width="800"/><br />
+  ![](images/viz_scatterplot.jpg)
+  
  
 •	Bar chart of average car Price (API) for each car make (flat file)<br />
   <br />
-   <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/viz_boxplot.jpg" width="800"/><br />
- 
+   ![](images/viz_boxplot.jpg)
+    
 •	Viewing the sales (website) for each make (flat file) as a pie chart<br />
   <br />
-   <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/viz_piechart.jpg" width="800"/><br />
- 
+  ![](images/viz_piechart.jpg)
+   
 
 •	Density plot of duration_listed (flat file)<br />
   <br />
-   <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/viz_densityplot.jpg" width="800"/><br />
+  ![](images/viz_densityplot.jpg)
+  
  
 • Boxplots of the Highway mpg distribution (flat file) for each car make (flat file)<br />
   <br />
-   <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/viz_densityplot2.jpg" width="800"/><br />
+   ![](images/viz_densityplot2.jpg)
+  
  <br />
 
 
