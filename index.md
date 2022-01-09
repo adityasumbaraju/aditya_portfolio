@@ -1,7 +1,7 @@
 ## Data Science Projects Portfolio
 
 ## Project 1: ETL
-<a href="https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Data_Preparation_Car_Sales_Productivity"> <b>Data Preparation - ETL and Data Analysis Project</b> </a>
+<a href="https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Data_Preparation_Car_Sales_Productivity"> <b>Data Preparation - ETL and Data Analysis Project Car Sales Productivity</b> </a>
 
 
    <b> Data Preparation - ETL and Data Analysis Project </b> 
