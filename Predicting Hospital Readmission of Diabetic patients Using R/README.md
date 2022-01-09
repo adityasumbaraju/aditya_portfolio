@@ -21,7 +21,7 @@ It appear to be some positive correlations between number of medications and var
 <b>Residual plots: </b>  
 
 <br />
-   ![](images/P3_Plots.JPG)
+     <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Predicting%20Hospital%20Readmission%20of%20Diabetic%20patients%20Using%20R/images/P3_Plots.JPG" width="800"/><br />
  
  <br />
 
@@ -32,6 +32,4 @@ The model has two quadratic features: age and time in hospital. The time in hosp
 There were also several dichotomous variables, some of which I adapted. Patients on diabetes medications were much more likely to be on additional medications. By contrast, ‘no changes’ to medications was associated with being on fewer medications, as well as not being insulin-dependent. Men were also own fewer medications.
 
   <br />
-   ![](images/P3_summary.JPG) 
-  
- <br />
+ <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Predicting%20Hospital%20Readmission%20of%20Diabetic%20patients%20Using%20R/images/P3_summary.JPG" width="800"/><br />
