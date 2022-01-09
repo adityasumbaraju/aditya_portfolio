@@ -6,6 +6,8 @@
            I have considered three datasets for the Data Preparation - ETL Project. The three datasets are linked based on the Make and Model of a given vehicle.<br />
  <b>Data source 1: flat file</b>
 The CSV file containing the vehicle demographics, which is specific to the wheelbase, fuel type, and respective price of several motor vehicle models. Each row is one vehicle model, and each column is one specification such as engine size, fuel system, stroke, horsepower, highway mpg, city mpg, etc.<br />
+!(/aditya_portfolio/P1_images/DS1_stats.jpg)
+!(/aditya_portfolio/P1_images/DS1_corr.jpg)
  (https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS1_stats.jpg)<br />
  (https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Data_Preparation_Car_Sales_Productivity/images/DS1_corr.jpg)  <br />  
  
