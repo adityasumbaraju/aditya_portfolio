@@ -154,12 +154,12 @@ Dimensionality Reduction Dimensionality Reduction is a technique that reduces th
 • Fetch the required features using RFECV - Recursive Feature Elimination and Cross-Validation Selection • With the help of RFECV we can eliminate the irrelevant features based on scoring. • I have used “f1_weighted” for scoring - It results in an F-score that is not between precision and recall
 
 In this project, I have created three classification machine learning models that can predict if a person has breast cancer based on 10 different characteristics of the digitized cell nuclei. In comparison between logistic regression, Keras and SVM, the logistic regression model was more accurate in predicting breast cancer’s class. Therefore, it seems that for classification of breast cancer’s class, logistic regression method is appropriate to be used. The Logistic regression, correctly classifies patients with and without breast cancer 96% of the times. Its AUC of 99% indicates a great ability to distinguish between a benign lump and a malignant tumor.
- <br /> <b> Logistic Regression<b>
+ <br /> <b> Logistic Regression <b>
  <br />
    ![](images/P4_LOG_ROC.jpg)
   
  <br />
-<b> SVM Classifier<b>
+<b> SVM Classifier <b>
   <br />
      <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Build%20Predictive%20Model%20-%20Breast%20Cancer%20casestudy/images/P4_SVM_ROC.jpg" width="800"/>
      <br />
@@ -170,15 +170,12 @@ In this project, I have created three classification machine learning models tha
   <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Build%20Predictive%20Model%20-%20Breast%20Cancer%20casestudy/images/KerasConfusionMatrix.jpg" width="800"/>
 
 # Project 5: Breast Cancer Prediction - Model evaluation
+    
 Compared to logistic regression, Random Forest, KNN, and SVM, the logistic regression model was more accurate in predicting breast cancer's class. It seems that for the classification of breast cancer class, the logistic regression method is appropriate. The Logistic regression correctly classifies patients with and without breast cancer 96% of the time. Its AUC of 99% indicates a remarkable ability to distinguish between a benign lump and a malignant tumor In the Anaconda environment, all algorithms have been programmed in Python using the scikit-learn library. After an accurate comparison between our models, I found that the logistic regression achieved a higher efficiency of 98%, Precision of 97.5%, AUC of 99 %, and outperformed all other algorithms. In conclusion, Logistic regression has demonstrated its efficiency in Breast Cancer prediction and diagnosis and achieves the best performance in terms of accuracy and Precision.
 
-Model           SVM   LogisticRegression  RandomForest  KNN 
-
-Prediction Yes  82    80                  77             81 
-
-Prediction -No  146   148                 151            147
-
-Accuracy        97%   98%                 97%            98%
+    <br />
+      <img src="https://github.com/adityasumbaraju/aditya_portfolio/blob/main/Model%20Evaluation%20on%20Breast%20Cancer%20Case%20Study/images/P5_Model_Evaluation.JPG" width="800"/>
+    <br />
 
 
 # Project 6: Airline Performance Dashboard using tableau
