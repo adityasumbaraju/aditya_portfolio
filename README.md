@@ -6,3 +6,7 @@ Data Science Portfolio</br>
 <b>Project 4: [Dimentionality Reduction and Feature Engineering on Breast Cancer Case Study](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Build%20Predictive%20Model%20-%20Breast%20Cancer%20casestudy)</b> </br>
 <b>Project 5: [Breast Cancer Prediction - Model evaluation](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Model%20Evaluation%20on%20Breast%20Cancer%20Case%20Study)</b> </br>
 <b>Project 6: [Airline Performance Dashboard using tableau](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Data%20Visualizations%20using%20tableau)</b> </br>
+<b>Project 7: [Customer Purchase Journey Prediction](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Customer_Purchase_Journey_Prediction)</b> </br>
+<b>Project 8: [ongoing] </br>
+<b>Project 9: [ongoing] </br>
+<b>Project 10: [ongoing] </br>
