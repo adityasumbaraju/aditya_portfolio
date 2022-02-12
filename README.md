@@ -7,6 +7,6 @@ Data Science Portfolio</br>
 <b>Project 5: [Breast Cancer Prediction - Model evaluation](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Model%20Evaluation%20on%20Breast%20Cancer%20Case%20Study)</b> </br>
 <b>Project 6: [Airline Performance Dashboard using tableau](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Data%20Visualizations%20using%20tableau)</b> </br>
 <b>Project 7: [Customer Purchase Journey Prediction](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Customer_Purchase_Journey_Prediction)</b> </br>
-<b>Project 8: [ongoing] </br>
-<b>Project 9: [ongoing] </br>
+<b>Project 8: [Customer_Churn_Prediction_in_banking](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Customer_Churn_Prediction_in_banking)</b> </br>
+<b>Project 9: [HeartAttackPrediction](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/HeartAttackPrediction)</b> </br> </br>
 <b>Project 10: [ongoing] </br>
