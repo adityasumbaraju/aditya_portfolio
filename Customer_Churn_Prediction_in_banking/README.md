@@ -24,3 +24,33 @@ The dataset consists of 10000 observations and 12 variables.
 ![](images/img5.jpg)
 </br>
 
+</br><b> Model Performance </b> </br>
+# Logistic Regression
+![](images/MR_LR.jpg)
+
+# SVC
+![](images/MR_SVC.jpg)
+
+# KNN
+![](images/MR_KNN.jpg)
+
+# Random Forest
+![](images/RF_MR.jpg)
+
+</br><b> Model Performance </b> </br>
+
+# KNN
+![](images/ME_KNN.jpg)
+
+# Logistic Regression
+![](images/ME_LR.jpg)
+
+# Random Forest
+![](images/ME_RF.jpg)
+
+# SVC
+![](images/ME_SVC.jpg)
+
+</br><b> Model Results </b> </br>
+
+![](images/FR.jpg)
