@@ -1,5 +1,5 @@
 # Aditya Portfolio
-Data Science Portfolio</br>
+Data Science Portfolio </br>
 <b>Project 1: [Data Preparation- ETL Project - Car Sales Productivity](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Data_Preparation_Car_Sales_Productivity)</b> </br>
 <b>Project 2: [Exploratory Data Analysis- EDA Project- Factors Affecting Vehicular Emissions](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/EDA-%20CO2%20Emission)</b> </br>
 <b>Project 3: [R Project - Predicting Hospital Readmission of Diabetic patients](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Predicting%20Hospital%20Readmission%20of%20Diabetic%20patients%20Using%20R)</b> </br>
@@ -9,5 +9,4 @@ Data Science Portfolio</br>
 <b>Project 7: [Customer Purchase Journey Prediction](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Customer_Purchase_Journey_Prediction)</b> </br>
 <b>Project 8: [Customer_Churn_Prediction_in_banking](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Customer_Churn_Prediction_in_banking)</b> </br>
 <b>Project 9: [HeartAttackPrediction](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/HeartAttackPrediction)</b> </br>
-<b>Project 10: [Mini Applications using python programming] (https://github.com/adityasumbaraju/aditya_portfolio/tree/main/HeartAttackPrediction)</b> </br>
-<b>Project 10: [Mini Applications using python programming] (https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Mini%20Applications%20using%20python%20programming/Code) </b> </br>
+<b>Project 10: [Mini Applications using python programming](https://github.com/adityasumbaraju/aditya_portfolio/tree/main/Mini%20Applications%20using%20python%20programming/Code) </b> </br>
