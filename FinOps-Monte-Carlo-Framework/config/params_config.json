@@ -1,0 +1,163 @@
+{
+  "project_meta": {
+    "title": "FinOps Monte Carlo Framework for Enterprise Data Investment Decisions",
+    "version": "2.0.0",
+    "publication": "IEEE Access (manuscript prepared for submission)",
+    "author": "Aditya Sumbaraju",
+    "description": "Multi-cloud data pipeline investment analysis with Gaussian copulas for correlated uncertainty"
+  },
+  "simulation": {
+    "n_iterations": 10000,
+    "random_seed": 42,
+    "discount_rate_wacc": 0.08,
+    "horizon_years": 3,
+    "notes": "8% WACC applied as proper discount rate over a 3-year horizon (NPV-based ROI)."
+  },
+  "variables": {
+    "demand_volume": {
+      "description": "Daily transaction volume across a large enterprise pipeline (e.g., 10 million records/day)",
+      "mean_units_per_day": 10000000,
+      "coefficient_of_variation": 0.06,
+      "distribution": "lognormal",
+      "unit": "records/day",
+      "source": "Representative multi-cloud pipeline throughput benchmark"
+    },
+    "unit_cost_usd": {
+      "description": "Per-record processing cost ($18 per 1,000 records => $0.018/record)",
+      "mean": 0.018,
+      "std_dev": 0.0036,
+      "distribution": "lognormal",
+      "unit": "USD/record",
+      "source": "Public cloud pricing (GCP BigQuery, Snowflake, AWS on-demand rates)"
+    },
+    "resource_utilization_pct": {
+      "description": "Cloud resource utilization (CPU, memory, I/O)",
+      "alpha": 6.8,
+      "beta": 3.2,
+      "mean_pct": 68.0,
+      "distribution": "beta",
+      "unit": "percent",
+      "source": "FinOps benchmark (typical enterprise utilization, mean 68%)"
+    },
+    "pipeline_throughput_recs_per_sec": {
+      "description": "Pipeline processing throughput",
+      "mean": 8500,
+      "std_dev": 425,
+      "distribution": "normal",
+      "unit": "records/second",
+      "source": "Representative enterprise Apache Airflow deployment"
+    },
+    "compute_cost_usd_per_unit": {
+      "description": "Compute resource cost per record (/bin/bash.42 per 1,000 records => /bin/bash.00042/record). Annual base cloud spend = demand_per_day * 365 * compute_cost (~.5M/year at 10M records/day).",
+      "mean": 0.00042,
+      "std_dev": 8.4e-05,
+      "distribution": "lognormal",
+      "unit": "USD/record",
+      "source": "Public cloud pricing aggregates"
+    }
+  },
+  "correlation_matrix": {
+    "description": "Gaussian copula correlation structure preserving observed covariance",
+    "notes": "Demand-compute cost correlation 0.62; demand-utilization 0.55. Ignoring these correlations underestimates ROI variance.",
+    "variables": [
+      "demand_volume",
+      "unit_cost_usd",
+      "resource_utilization_pct",
+      "pipeline_throughput_recs_per_sec",
+      "compute_cost_usd_per_unit"
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.15,
+        0.55,
+        0.08,
+        0.62
+      ],
+      [
+        0.15,
+        1.0,
+        0.12,
+        0.05,
+        0.25
+      ],
+      [
+        0.55,
+        0.12,
+        1.0,
+        0.3,
+        0.18
+      ],
+      [
+        0.08,
+        0.05,
+        0.3,
+        1.0,
+        0.1
+      ],
+      [
+        0.62,
+        0.25,
+        0.18,
+        0.1,
+        1.0
+      ]
+    ]
+  },
+  "scenarios": {
+    "capacity_expansion": {
+      "name": "Scenario A: Pipeline Capacity Expansion",
+      "investment_usd": 200000,
+      "horizon_years": 3,
+      "description": "Expanding cloud infrastructure (BigQuery slots, Snowflake credits, EC2 capacity)",
+      "benefits": {
+        "fixed_component_usd": 66814.55,
+        "variable_rate_of_cloud_spend": 0.014225,
+        "rationale": "Fixed capacity-cost savings (bulk pricing, reserved capacity) plus a demand-linked component reflecting variable compute-cost exposure during peak load.",
+        "calibration_note": "Fixed component (capacity-cost savings via reserved capacity / bulk pricing) plus a demand-linked component (~0.35% of annual cloud spend) capturing variable compute-cost exposure during peak load. Component values are illustrative, calibrated to achieve the reported Table V means and SDs for a representative enterprise pipeline benchmark."
+      }
+    },
+    "automation": {
+      "name": "Scenario B: ETL Reconciliation Automation",
+      "investment_usd": 150000,
+      "horizon_years": 3,
+      "description": "Automate manual data quality checks and reconciliation",
+      "benefits": {
+        "fixed_component_usd": 59459.13,
+        "variable_rate_of_cloud_spend": 0.003247,
+        "rationale": "Predominantly fixed labor savings (FTE reduction) plus a small demand-linked dispute-recovery term. Cost structure is largely volume-invariant, producing a narrow ROI distribution.",
+        "calibration_note": "Fixed labor-savings component (FTE reduction) plus a small demand-linked dispute-recovery term (~0.08% of cloud spend). Cost structure is largely volume-invariant, producing a narrow ROI distribution. Illustrative calibrated values."
+      }
+    },
+    "governance": {
+      "name": "Scenario C: Multi-Cloud Governance Tooling",
+      "investment_usd": 300000,
+      "horizon_years": 3,
+      "description": "Centralized anomaly detection and contract enforcement",
+      "benefits": {
+        "fixed_component_usd": 107820.09,
+        "variable_rate_of_cloud_spend": 0.012679,
+        "rationale": "Risk-avoidance benefit (expected compliance/penalty exposure reduction) plus a demand-linked compute-efficiency term. Medium variance reflects mixed fixed and demand-sensitive returns.",
+        "calibration_note": "Fixed risk-avoidance component (expected compliance/penalty exposure reduction) plus a demand-linked compute-efficiency term (~0.31% of cloud spend). Illustrative calibrated values."
+      }
+    }
+  },
+  "analysis": {
+    "threshold_exceedance_roi": 0.08,
+    "confidence_floor": 0.7,
+    "wacc_note": "The 8% ROI threshold corresponds to a weighted average cost of capital typical of mid-market enterprise cloud infrastructure investments.",
+    "sensitivity_analysis": {
+      "correlation_structures": [
+        "observed_gaussian",
+        "independent",
+        "t_copula_df5"
+      ],
+      "data_quality_degradation": [
+        0.0,
+        0.1,
+        0.25
+      ],
+      "comment": "Test ranking stability under correlation and data-quality uncertainty."
+    }
+  }
+}
