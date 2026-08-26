@@ -33,7 +33,7 @@ python generate_figures.py     # generates figures/figure1_architecture.png and 
 - `scenarios/scenario_{a,b,c}.py` - scenario ROI equations
 - `utils/copula.py` - Gaussian and Student-t copula sampling
 - `config/params_config.json` - all distributions, correlations, and calibrated parameters
-- `outputs/` - simulation results (CSV, JSON)
+- `outputs/` - simulation results (CSV, JSON). This is the only results directory; `main.py` and `sensitivity_analysis.py` both write here. (An older draft used a `results/` folder — it is unused and can be deleted.)
 - `figures/` - manuscript figures
 
 ## Financial Model
