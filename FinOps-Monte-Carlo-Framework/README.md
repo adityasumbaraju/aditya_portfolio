@@ -122,7 +122,7 @@ If you use this framework, please cite:
          A Monte Carlo Framework for Enterprise Investment Decisions},
   author={Sumbaraju, Aditya},
   journal={IEEE Access},
-  year={2024}
+  year={2026}
 }
 ```
 
@@ -134,12 +134,12 @@ If you use this framework, please cite:
 
 ## References
 
-See the manuscript (IEEE_Access_Article_FINAL.docx) for detailed literature review and methodological justification.
+TBD
 
 ## License
 
-MIT License — See LICENSE file for details.
+TBD
 
 ## Contact
 
-For questions or issues, contact: aditya.sumbaraju@example.com
+For questions or issues, contact: adityacsumbaraju@gmail.com
