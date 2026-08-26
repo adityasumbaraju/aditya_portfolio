@@ -1,138 +1,120 @@
 """
-Sensitivity Analysis - Test ranking stability under correlation and data-quality uncertainty
-"""
+Sensitivity Analysis - ranking stability under correlation and data-quality uncertainty.
 
+Tests how investment rankings change under:
+  1. Observed Gaussian copula (baseline, preserves correlation structure)
+  2. Independent sampling (removes all inter-variable dependence)
+  3. Student-t copula (df=5, adds tail dependence)
+  4. Data-quality degradation (0%, 10%, 25%: shrinks correlations toward zero)
+
+Also runs a bootstrap analysis (100 resamples) confirming the persistence of
+the reranking effect.
+"""
 import json
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
-from pathlib import Path
-from scipy.stats import multivariate_normal, norm
 
-from scenarios.scenario_a import ScenarioA
-from scenarios.scenario_b import ScenarioB
-from scenarios.scenario_c import ScenarioC
+from scenarios import ScenarioA, ScenarioB, ScenarioC
+from utils.copula import (
+    generate_gaussian_copula_samples,
+    generate_t_copula_samples,
+    generate_independent_samples,
+)
+
+CONFIG_PATH = Path("config/params_config.json")
+OUTPUT_DIR = Path("outputs")
 
 
-class SensitivityAnalysis:
-    def __init__(self, config_path='config/params_config.json'):
-        """Initialize sensitivity framework."""
-        with open(config_path, 'r') as f:
-            self.params = json.load(f)
+def load_config(config_path):
+    with open(config_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-        self.n_iterations = self.params['simulation']['n_iterations']
 
-    def run_with_correlation_structure(self, correlation_matrix):
-        """Run all scenarios with specified correlation matrix."""
-        # Generate copula samples with given correlation
-        z_samples = np.random.multivariate_normal(
-            mean=np.zeros(len(correlation_matrix)),
-            cov=correlation_matrix,
-            size=self.n_iterations
-        )
-        u_samples = norm.cdf(z_samples)
-
-        results = {}
-
-        # Run each scenario
-        for scenario_class, name in [
-            (ScenarioA, 'scenario_a'),
-            (ScenarioB, 'scenario_b'),
-            (ScenarioC, 'scenario_c')
-        ]:
-            scenario = scenario_class(self.params)
-            samples = scenario.transform_uniform_to_variables(u_samples)
-            roi = scenario.calculate_roi(samples)
-
-            results[name] = {
-                'mean_roi': np.mean(roi),
-                'std_roi': np.std(roi),
-                'threshold_exceedance': np.sum(roi > 0.20) / self.n_iterations
-            }
-
-        return results
-
-    def test_independent_sampling(self):
-        """Test ranking stability under INDEPENDENT sampling (no correlation)."""
-        print("\nTesting INDEPENDENT sampling (correlation = 0)...")
-
-        # Identity matrix = independent variables
-        independent_corr = np.eye(5)
-        results = self.run_with_correlation_structure(independent_corr)
-
-        return results
-
-    def test_observed_correlation(self):
-        """Test with OBSERVED correlation structure."""
-        print("\nTesting OBSERVED correlation structure...")
-
-        observed_corr = np.array(self.params['correlation_matrix']['matrix'])
-        results = self.run_with_correlation_structure(observed_corr)
-
-        return results
-
-    def test_data_quality_degradation(self):
-        """Test ranking stability under data-quality degradation."""
-        print("\nTesting DATA-QUALITY degradation scenarios...")
-
-        degradation_levels = [0.0, 0.1, 0.25]
-        results_by_degradation = {}
-
-        for deg_level in degradation_levels:
-            # Increase correlation uncertainty: reduce correlation strength
-            observed_corr = np.array(self.params['correlation_matrix']['matrix'])
-
-            # Apply degradation by moving correlations toward 0
-            degraded_corr = observed_corr.copy()
-            degraded_corr = np.eye(5) + (degraded_corr - np.eye(5)) * (1 - deg_level)
-
-            results = self.run_with_correlation_structure(degraded_corr)
-            results_by_degradation[f'degradation_{deg_level:.0%}'] = results
-
-        return results_by_degradation
-
-    def export_sensitivity_results(self, all_results, output_dir='outputs'):
-        """Export sensitivity analysis results."""
-        Path(output_dir).mkdir(exist_ok=True)
-
-        # Compile all results into comparison table
-        comparison_data = []
-
-        for test_name, test_results in all_results.items():
-            for scenario_name, metrics in test_results.items():
-                row = {
-                    'test': test_name,
-                    'scenario': scenario_name,
-                    **metrics
-                }
-                comparison_data.append(row)
-
-        comparison_df = pd.DataFrame(comparison_data)
-        comparison_df.to_csv(f'{output_dir}/sensitivity_analysis.csv', index=False)
-        print(f"\n✓ Exported sensitivity results to {output_dir}/sensitivity_analysis.csv")
-
-        return comparison_df
+def run_scenarios_on_samples(u_samples, params, threshold):
+    scenario_classes = [(ScenarioA, "A"), (ScenarioB, "B"), (ScenarioC, "C")]
+    results = {}
+    for scenario_class, name in scenario_classes:
+        scenario = scenario_class(params)
+        samples = scenario.transform_uniform_to_variables(u_samples)
+        roi = scenario.calculate_roi(samples)
+        results[name] = {
+            "mean_roi": float(np.mean(roi)),
+            "std_roi": float(np.std(roi)),
+            "p5_roi": float(np.percentile(roi, 5)),
+            "p95_roi": float(np.percentile(roi, 95)),
+            "threshold_exceedance": float(np.mean(roi > threshold)),
+        }
+    return results
 
 
 def main():
-    sensitivity = SensitivityAnalysis('config/params_config.json')
+    params = load_config(CONFIG_PATH)
+    n = params["simulation"]["n_iterations"]
+    seed = params["simulation"]["random_seed"]
+    threshold = params["analysis"]["threshold_exceedance_roi"]
+    corr = np.array(params["correlation_matrix"]["matrix"], dtype=float)
+    n_vars = len(params["correlation_matrix"]["variables"])
 
-    # Run all sensitivity tests
-    all_results = {
-        'independent_sampling': sensitivity.test_independent_sampling(),
-        'observed_correlation': sensitivity.test_observed_correlation(),
-        **sensitivity.test_data_quality_degradation()
+    all_results = {}
+
+    # 1. Observed Gaussian copula
+    u = generate_gaussian_copula_samples(corr, n, random_seed=seed)
+    all_results["observed_gaussian"] = run_scenarios_on_samples(u, params, threshold)
+
+    # 2. Independent sampling
+    u = generate_independent_samples(n_vars, n, random_seed=seed)
+    all_results["independent"] = run_scenarios_on_samples(u, params, threshold)
+
+    # 3. Student-t copula (df=5)
+    u = generate_t_copula_samples(corr, n, df=5, random_seed=seed)
+    all_results["t_copula_df5"] = run_scenarios_on_samples(u, params, threshold)
+
+    # 4. Data-quality degradation (shrink correlations toward zero)
+    for deg in [0.0, 0.10, 0.25]:
+        degraded = np.eye(n_vars) + (corr - np.eye(n_vars)) * (1 - deg)
+        u = generate_gaussian_copula_samples(degraded, n, random_seed=seed)
+        all_results[f"degradation_{int(deg*100)}pct"] = run_scenarios_on_samples(u, params, threshold)
+
+    # Bootstrap analysis: 100 resamples of the observed-Gaussian ROI distributions
+    u = generate_gaussian_copula_samples(corr, n, random_seed=seed)
+    bootstrap_counts = {"A_beats_B_by_prob": 0}
+    for i in range(100):
+        rng = np.random.default_rng(seed + i)
+        idx = rng.integers(0, n, size=n)
+        u_b = u[idx]
+        res = run_scenarios_on_samples(u_b, params, threshold)
+        if res["B"]["threshold_exceedance"] > res["A"]["threshold_exceedance"]:
+            bootstrap_counts["A_beats_B_by_prob"] += 1
+    all_results["bootstrap_100_resamples"] = {
+        "B_overtakes_A_in_n_of_100": bootstrap_counts["A_beats_B_by_prob"]
     }
 
-    # Export and display results
-    comparison_df = sensitivity.export_sensitivity_results(all_results)
+    # Export
+    rows = []
+    for test_name, test_results in all_results.items():
+        if "threshold_exceedance" not in str(test_results):
+            rows.append({"test": test_name, **test_results})
+            continue
+        for s, m in test_results.items():
+            rows.append({"test": test_name, "scenario": s, **m})
+    pd.DataFrame(rows).to_csv(OUTPUT_DIR / "sensitivity_analysis.csv", index=False)
+    with open(OUTPUT_DIR / "sensitivity_results.json", "w") as f:
+        json.dump(all_results, f, indent=2)
 
-    print("\n" + "="*80)
+    # Summary
+    print("\n" + "=" * 80)
     print("SENSITIVITY ANALYSIS SUMMARY")
-    print("="*80)
-    print(comparison_df.to_string(index=False))
+    print("=" * 80)
+    for test_name, test_results in all_results.items():
+        print(f"\n{test_name}:")
+        if isinstance(test_results, dict) and "B_overtakes_A_in_n_of_100" in test_results:
+            print(f"  B overtakes A in {test_results['B_overtakes_A_in_n_of_100']} of 100 bootstrap resamples")
+            continue
+        for s, m in test_results.items():
+            print(f"  Scenario {s}: mean={m['mean_roi']*100:.1f}% SD={m['std_roi']*100:.1f}pts P(ROI>8%)={m['threshold_exceedance']*100:.1f}%")
 
-    print("\n✓ Sensitivity analysis complete!")
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

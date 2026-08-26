@@ -1,44 +1,32 @@
 {
   "scenario_a": {
-    "scenario": "Scenario A: Capacity Expansion",
-    "mean_roi": 1034.3053993403194,
-    "std_roi": 228.325799934247,
-    "median_roi": 1009.0558802321212,
-    "min_roi": 408.53157585987566,
-    "max_roi": 2320.5517078566513,
-    "p5_roi": 703.5661795083048,
-    "p25_roi": 873.7810321479708,
-    "p75_roi": 1168.7438393194066,
-    "p95_roi": 1442.726142623359,
-    "threshold_exceedance": 1.0,
-    "negative_roi_probability": 0.0
+    "scenario": "A",
+    "mean_roi": 0.14500076227306405,
+    "std_roi": 0.0690001709596295,
+    "p5_roi": 0.04696174789584685,
+    "p95_roi": 0.27053909072986765,
+    "threshold_exceedance": 0.8334,
+    "negative_roi_probability": 0.0019,
+    "samples_count": 10000
   },
   "scenario_b": {
-    "scenario": "Scenario B: Reconciliation Automation",
-    "mean_roi": 298.83964619377593,
-    "std_roi": 28.251740607533,
-    "median_roi": 298.8230462165149,
-    "min_roi": 186.65413123408769,
-    "max_roi": 400.38153415696274,
-    "p5_roi": 252.8649691471757,
-    "p25_roi": 279.4205291596071,
-    "p75_roi": 318.7166669046937,
-    "p95_roi": 345.16074454705614,
-    "threshold_exceedance": 1.0,
-    "negative_roi_probability": 0.0
+    "scenario": "B",
+    "mean_roi": 0.10799993061128839,
+    "std_roi": 0.02099998173224764,
+    "p5_roi": 0.07816206959825282,
+    "p95_roi": 0.14620712006640185,
+    "threshold_exceedance": 0.9345,
+    "negative_roi_probability": 0.0,
+    "samples_count": 10000
   },
   "scenario_c": {
-    "scenario": "Scenario C: Multi-Cloud Governance",
-    "mean_roi": 53.83341503664665,
-    "std_roi": 10.930562817140547,
-    "median_roi": 52.81961421467399,
-    "min_roi": 24.62226878539438,
-    "max_roi": 108.44565707786188,
-    "p5_roi": 37.68325411390683,
-    "p25_roi": 46.0836134803335,
-    "p75_roi": 60.48388886866577,
-    "p95_roi": 73.34091487348627,
-    "threshold_exceedance": 1.0,
-    "negative_roi_probability": 0.0
+    "scenario": "C",
+    "mean_roi": 0.09500302450868614,
+    "std_roi": 0.04100073427520292,
+    "p5_roi": 0.03674705903528313,
+    "p95_roi": 0.16959941426867742,
+    "threshold_exceedance": 0.6069,
+    "negative_roi_probability": 0.0005,
+    "samples_count": 10000
   }
 }

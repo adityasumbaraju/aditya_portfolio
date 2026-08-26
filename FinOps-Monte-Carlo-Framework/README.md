@@ -1,145 +1,64 @@
 # FinOps Monte Carlo Framework
 
-**Integrating Predictive Demand Analytics into Multi-Cloud Data Pipelines: A Monte Carlo Framework for Enterprise Investment Decisions**
+A Monte Carlo simulation framework for evaluating multi-cloud data pipeline investment decisions under correlated uncertainty. Companion reference implementation for the manuscript *"Integrating Predictive Demand Analytics into Multi-Cloud Data Pipelines: A Monte Carlo Framework for Enterprise Investment Decisions"* by Aditya Sumbaraju, prepared for submission to IEEE Access.
 
-This repository contains the complete implementation of a Monte Carlo simulation framework for evaluating capital investment decisions in enterprise data operations, published in IEEE Access.
+> **Status:** Manuscript in preparation for submission to IEEE Access. This repository contains the reference implementation used to generate all results reported in the manuscript. Parameter values are illustrative calibrated assumptions for a reproducible example, not proprietary production data.
 
-## Project Structure
+## Key Results (Table V)
 
-```
-FinOps-Monte-Carlo-Framework/
-├── scenarios/                    # Investment scenario classes
-│   ├── scenario_a.py            # Capacity Expansion (200K investment)
-│   ├── scenario_b.py            # Reconciliation Automation (150K investment)
-│   └── scenario_c.py            # Governance Tooling (300K investment)
-├── config/
-│   └── params_config.json       # Centralized parameter configuration
-├── utils/
-│   └── copula.py                # Gaussian copula utilities
-├── main.py                      # Master simulation runner
-├── sensitivity_analysis.py      # Ranking stability under uncertainty
-├── outputs/                     # Results directory
-├── docs/                        # Documentation
-└── README.md                    # This file
-```
+10,000 iterations, 8% WACC, 3-year NPV horizon.
 
-## Key Features
+| Scenario | Mean ROI | SD (pts) | P(ROI > 8%) |
+|----------|----------|----------|-------------|
+| A: Capacity Expansion | 14.5% | 6.9 | 83.3% |
+| B: ETL Automation | 10.8% | 2.1 | 93.5% |
+| C: Governance Tooling | 9.5% | 4.1 | 60.7% |
 
-### ✓ Correlation-Preserving Sampling
-Uses Gaussian copulas to maintain observed multi-variable dependencies:
-- **Demand–Compute-Cost correlation**: 0.62
-- **Demand–Utilization correlation**: 0.55
-- **Impact**: Ignoring these correlations underestimates ROI variance by ~40%
+The probabilistic ranking (B > A > C by probability of clearing the 8% WACC threshold) differs from the mean-ROI ranking (A > B > C). This reranking is the central finding of the manuscript and is confirmed stable across Student-t copula, independence, and data-quality-degradation perturbations, and in 100 of 100 bootstrap resamples.
 
-### ✓ Parameterized Configuration
-All assumptions stored in `config/params_config.json`:
-- 5-variable probability model with documented sources
-- Full correlation matrix for copula construction
-- Scenario-specific benefits and investment parameters
+## Quick Start
 
-### ✓ Three Investment Scenarios
-1. **Scenario A**: Pipeline Capacity Expansion ($200K)
-   - Unit cost discounts from volume growth
-   - Elimination of on-demand overflow surcharges
-   - SLA compliance improvements
-
-2. **Scenario B**: ETL Reconciliation Automation ($150K)
-   - Fixed labor savings (25% FTE reduction = $12.5K/year)
-   - Error recovery from chargeback disputes (~2% transaction rate)
-   - Throughput improvements
-
-3. **Scenario C**: Multi-Cloud Governance Tooling ($300K)
-   - Risk mitigation (compliance cost avoidance)
-   - Data quality improvement (dispute reduction)
-   - Compute efficiency gains
-
-### ✓ Sensitivity Analysis
-Tests ranking stability under:
-- Independent sampling (no correlation)
-- Observed correlation structure
-- Data-quality degradation (0%, 10%, 25%)
-
-## Running the Simulation
-
-### 1. Install Dependencies
 ```bash
-pip install numpy scipy pandas matplotlib
+pip install -r requirements.txt
+python main.py                 # generates outputs/roi_statistics.csv and Table V
+python sensitivity_analysis.py # generates outputs/sensitivity_analysis.csv
+python generate_figures.py     # generates figures/figure1_architecture.png and figure2_roi_distributions.png
 ```
 
-### 2. Run Main Simulation
-```bash
-python main.py
-```
+## Repository Structure
 
-**Output files** (in `outputs/`):
-- `roi_statistics.csv` — Mean, std, percentiles, threshold exceedance
-- `roi_distributions.csv` — Full ROI distribution for each scenario
-- `simulation_results.json` — JSON summary of all statistics
+- `main.py` - master simulation runner (Table V)
+- `sensitivity_analysis.py` - correlation/data-quality robustness + bootstrap
+- `generate_figures.py` - manuscript figures
+- `scenarios/scenario_{a,b,c}.py` - scenario ROI equations
+- `utils/copula.py` - Gaussian and Student-t copula sampling
+- `config/params_config.json` - all distributions, correlations, and calibrated parameters
+- `outputs/` - simulation results (CSV, JSON)
+- `figures/` - manuscript figures
 
-### 3. Run Sensitivity Analysis
-```bash
-python sensitivity_analysis.py
-```
+## Financial Model
 
-**Output file**:
-- `sensitivity_analysis.csv` — Ranking stability comparison
-
-## Configuration
-
-Edit `config/params_config.json` to customize:
-
-- **Demand volume**: Daily transaction volume (default: 100,000 records/day)
-- **Unit cost**: Processing cost per record (default: $18)
-- **Compute cost**: Infrastructure cost per record (default: $0.42)
-- **Resource utilization**: Cloud resource usage (default: 68%)
-- **Pipeline throughput**: Records processed per second (default: 8,500 rec/sec)
-
-All parameters include documented sources and units.
-
-## Key Research Questions
-
-**RQ1**: Does preserving observed inter-variable dependence change capital-investment rankings relative to deterministic and independent-sampling models?
-
-**RQ2**: How sensitive is ranking stability to distributional assumptions, correlation estimates, and data-quality degradation?
-
-**RQ3**: What operational latency, data-quality, and governance controls are required for deployment?
-
-## Reproducibility
-
-- All parameters are version-controlled in JSON
-- Random seed: 42 (configurable in params_config.json)
-- 10,000 Monte Carlo iterations per scenario
-- Correlation matrix validated for positive semi-definiteness
-- Code available in public repository
-
-## Citation
-
-If you use this framework, please cite:
-
-```bibtex
-@article{Sumbaraju2024FinOps,
-  title={Integrating Predictive Demand Analytics into Multi-Cloud Data Pipelines: 
-         A Monte Carlo Framework for Enterprise Investment Decisions},
-  author={Sumbaraju, Aditya},
-  journal={IEEE Access},
-  year={2026}
-}
-```
-
-## Important Notes
-
-- This is an **illustrative demonstration**, not validation against a live production deployment
-- Organizations adopting the framework should substitute **their own pipeline-derived distributions** before relying on the output for capital decisions
-- The reference parameterization is calibrated to publicly reported FinOps benchmarks, not proprietary operational data
-
-## References
-
-TBD
+ROI is NPV-based: `ROI = (AnnualBenefit × annuity_factor − Investment) / Investment`, where the annuity factor at 8% WACC over 3 years is 2.577. The decision threshold is the 8% WACC. Each scenario's annual benefit combines a fixed (volume-invariant) component and a demand-linked component scaled to annual cloud spend, which carries the copula correlation structure and gives each scenario a distinct, economically defensible variance.
 
 ## License
 
-TBD
+See `LICENSE`.
 
-## Contact
+## Migration Note (Revision 2.0)
 
-For questions or issues, contact: adityacsumbaraju@gmail.com
+This repository was revised end-to-end to fix a critical unit-semantics bug (per-record costs were previously
+off by 1000x, causing ROI values ~1000x too high) plus a wrong decision threshold (20% instead of the
+intended 8% WACC) and a zero-discount-rate NPV calculation. This zip is a **full replacement** of the
+`FinOps-Monte-Carlo-Framework` directory, not an incremental patch.
+
+If you overlay these files onto the existing GitHub repository, also **delete** the following legacy files,
+which are superseded and would otherwise remain as stale/conflicting duplicates:
+- `main_orig.py`
+- `01_sensitivity_analysis_framework.py`
+- `02_ranking_stability_analyzer.py`
+- `QUICKSTART.md` (its "Expected output" section quoted the old, incorrect numbers)
+- `PROJECT_SUMMARY.md` / `MANIFEST.md` (if they reference the old Table V figures)
+- The previous `outputs/` and `results/` directories (regenerate via `main.py` and `sensitivity_analysis.py`)
+
+The corrected, single source of truth is: `main.py`, `sensitivity_analysis.py`, `generate_figures.py`,
+`scenarios/`, `utils/copula.py`, and `config/params_config.json`.
