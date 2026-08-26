@@ -1,0 +1,243 @@
+{
+  "fix1_threshold_sensitivity": {
+    "thresholds": [
+      {
+        "threshold_pct": 4.0,
+        "p_a": 0.9625,
+        "p_b": 1.0,
+        "p_c": 0.9356,
+        "ranking": "BAC"
+      },
+      {
+        "threshold_pct": 5.0,
+        "p_a": 0.9429,
+        "p_b": 1.0,
+        "p_c": 0.8799,
+        "ranking": "BAC"
+      },
+      {
+        "threshold_pct": 6.0,
+        "p_a": 0.9146,
+        "p_b": 0.9995,
+        "p_c": 0.8037,
+        "ranking": "BAC"
+      },
+      {
+        "threshold_pct": 7.0,
+        "p_a": 0.8775,
+        "p_b": 0.9895,
+        "p_c": 0.711,
+        "ranking": "BAC"
+      },
+      {
+        "threshold_pct": 8.0,
+        "p_a": 0.8334,
+        "p_b": 0.9345,
+        "p_c": 0.6069,
+        "ranking": "BAC"
+      },
+      {
+        "threshold_pct": 9.0,
+        "p_a": 0.782,
+        "p_b": 0.8044,
+        "p_c": 0.4997,
+        "ranking": "BAC"
+      },
+      {
+        "threshold_pct": 10.0,
+        "p_a": 0.7279,
+        "p_b": 0.6127,
+        "p_c": 0.4001,
+        "ranking": "ABC"
+      },
+      {
+        "threshold_pct": 11.0,
+        "p_a": 0.6674,
+        "p_b": 0.4101,
+        "p_c": 0.3197,
+        "ranking": "ABC"
+      },
+      {
+        "threshold_pct": 12.0,
+        "p_a": 0.6053,
+        "p_b": 0.2567,
+        "p_c": 0.2462,
+        "ranking": "ABC"
+      },
+      {
+        "threshold_pct": 13.0,
+        "p_a": 0.54,
+        "p_b": 0.1435,
+        "p_c": 0.185,
+        "ranking": "ACB"
+      },
+      {
+        "threshold_pct": 14.0,
+        "p_a": 0.4802,
+        "p_b": 0.0752,
+        "p_c": 0.1333,
+        "ranking": "ACB"
+      },
+      {
+        "threshold_pct": 15.0,
+        "p_a": 0.4187,
+        "p_b": 0.0394,
+        "p_c": 0.0964,
+        "ranking": "ACB"
+      },
+      {
+        "threshold_pct": 16.0,
+        "p_a": 0.3684,
+        "p_b": 0.0182,
+        "p_c": 0.0701,
+        "ranking": "ACB"
+      }
+    ],
+    "reranking_crossover_threshold_pct": 10.0
+  },
+  "fix3_parameter_prevalence": {
+    "n_trials": 1000,
+    "reranking_incidence_rate": 0.026,
+    "mean_roi_gap_when_reranked_pts": 12.05,
+    "prior_note": "fixed benefits U(40k,120k); variable rates U(0.1%,2.0%); investments fixed at paper values; normal-approx P(ROI>WACC)."
+  },
+  "fix4_decircularized_recovery": {
+    "n_trials": 1000,
+    "n_reranking_dgps": 65,
+    "reranking_prevalence_in_prior": 0.065,
+    "deterministic_rule_recovery_rate": 0.1077,
+    "probabilistic_rule_recovery_rate": 0.9385,
+    "prior_note": "means U(5%,20%), SDs U(1%,8%), independent of the paper's calibrated scenario values."
+  },
+  "fix5_correlation_sensitivity": {
+    "rho_grid": [
+      {
+        "demand_compute_rho": 0.0,
+        "p_a": 0.8679,
+        "p_b": 0.9576,
+        "ranking": "B>A"
+      },
+      {
+        "demand_compute_rho": 0.2,
+        "p_a": 0.8527,
+        "p_b": 0.9485,
+        "ranking": "B>A"
+      },
+      {
+        "demand_compute_rho": 0.4,
+        "p_a": 0.8434,
+        "p_b": 0.942,
+        "ranking": "B>A"
+      },
+      {
+        "demand_compute_rho": 0.62,
+        "p_a": 0.8334,
+        "p_b": 0.9345,
+        "ranking": "B>A"
+      },
+      {
+        "demand_compute_rho": 0.8,
+        "p_a": 0.822,
+        "p_b": 0.9281,
+        "ranking": "B>A"
+      }
+    ]
+  },
+  "fix6_reranking_break_point": {
+    "base_rate_b": 0.003247,
+    "variance_multiplier_at_break": 1.5,
+    "sweep": [
+      {
+        "variance_multiplier": 1.0,
+        "p_a": 0.8334,
+        "p_b": 0.9345,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 1.5,
+        "p_a": 0.8334,
+        "p_b": 0.8154,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 2.0,
+        "p_a": 0.8334,
+        "p_b": 0.7328,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 2.5,
+        "p_a": 0.8334,
+        "p_b": 0.6772,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 3.0,
+        "p_a": 0.8334,
+        "p_b": 0.6397,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 3.5,
+        "p_a": 0.8334,
+        "p_b": 0.6127,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 4.0,
+        "p_a": 0.8334,
+        "p_b": 0.5926,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 4.5,
+        "p_a": 0.8334,
+        "p_b": 0.576,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 5.0,
+        "p_a": 0.8334,
+        "p_b": 0.562,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 5.5,
+        "p_a": 0.8334,
+        "p_b": 0.5501,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 6.0,
+        "p_a": 0.8334,
+        "p_b": 0.5422,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 6.5,
+        "p_a": 0.8334,
+        "p_b": 0.5341,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 7.0,
+        "p_a": 0.8334,
+        "p_b": 0.5285,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 7.5,
+        "p_a": 0.8334,
+        "p_b": 0.5241,
+        "mean_b_preserved": 0.108
+      },
+      {
+        "variance_multiplier": 8.0,
+        "p_a": 0.8334,
+        "p_b": 0.52,
+        "mean_b_preserved": 0.108
+      }
+    ],
+    "interpretation": "A mean-preserving variance widening of 1.5x on B's demand-linked benefit flips the threshold ranking from B>A to A>=B, confirming the reranking is variance-driven and falsifiable."
+  }
+}

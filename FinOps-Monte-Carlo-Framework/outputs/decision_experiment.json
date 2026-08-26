@@ -1,0 +1,27 @@
+{
+  "n_trials": 1000,
+  "n_per_trial": 200,
+  "true_means": {
+    "A": 0.145,
+    "B": 0.108,
+    "C": 0.095
+  },
+  "true_p_exceed_wacc": {
+    "A": 0.826911099916455,
+    "B": 0.9087887802741321,
+    "C": 0.642762861174426
+  },
+  "true_risk_adjusted_utilities": {
+    "A": 0.1385880107302824,
+    "B": 0.10710970308166032,
+    "C": 0.08506075677612795
+  },
+  "best_by_mean": "A",
+  "best_by_p_exceed_wacc": "B",
+  "reranking_exists": true,
+  "deterministic_rule_picks_p_exceed_winner_rate": 0.0,
+  "probabilistic_rule_picks_p_exceed_winner_rate": 0.99,
+  "deterministic_rule_mean_utility": 0.1385880107302824,
+  "probabilistic_rule_mean_utility": 0.10742448615814655,
+  "utility_gain_probabilistic_vs_deterministic": -0.03116352457213585
+}
